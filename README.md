@@ -17,17 +17,27 @@ Replace this paragraph with your own summary of what your version does.
 
 ## How The System Works
 
-Explain your design in plain language.
+Real-world music recommenders usually combine many signals, like what a listener plays all the way through, skips, repeats, saves, and how similar their behavior is to other users with overlapping taste. My version is much simpler and more transparent: it compares a user's stated preferences to each song in `data/songs.csv`, gives the song a score, and then ranks the songs from strongest match to weakest match.
 
-Some prompts to answer:
+The system uses these song features: `genre`, `mood`, `energy`, `tempo_bpm`, `valence`, `danceability`, and `acousticness`. The user profile stores a favorite genre, a favorite mood, a target energy level, and whether the listener tends to like acoustic songs. The current scoring logic mainly relies on genre, mood, and energy so the recommendations are easy to explain.
 
-- What features does each `Song` use in your system
-  - For example: genre, mood, energy, tempo
-- What information does your `UserProfile` store
-- How does your `Recommender` compute a score for each song
-- How do you choose which songs to recommend
+**Data Flow**
 
-You can include a simple diagram or bullet list if helpful.
+Input: the user provides preferences such as favorite genre, favorite mood, and target energy.
+Process: the recommender loops through every song in the CSV and judges one song at a time by comparing its attributes to the user profile.
+Output: all songs are scored, sorted from highest to lowest, and the top `k` songs are returned as recommendations.
+
+**Algorithm Recipe**
+
+- Add `+2.0` points if the song's genre matches the user's favorite genre.
+- Add `+1.0` point if the song's mood matches the user's favorite mood.
+- Add energy similarity points based on how close the song's energy is to the user's target energy.
+- Store the song, its score, and a short explanation.
+- After every song has been scored, sort all songs by score and return the top results.
+
+**Potential Biases**
+
+This system might over-prioritize genre, ignoring great songs that match the user's mood or energy but fall outside the favorite genre. It also depends on a very small catalog, so underrepresented genres or moods may appear less often in the final rankings.
 
 ---
 
@@ -209,3 +219,5 @@ A few sentences about what you learned:
 - How did building this change how you think about real music recommenders
 - Where do you think human judgment still matters, even if the model seems "smart"
 
+## A screenshot of your terminal output showing the recommendations 
+![alt text](image.png)
