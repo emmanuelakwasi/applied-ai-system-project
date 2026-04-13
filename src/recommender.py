@@ -30,10 +30,10 @@ Each dictionary should include the song fields from the CSV, with numeric values
 
 SCORE_SONG_PROMPT = """
 Implement score_song(user_prefs, song) using this algorithm recipe:
-- Award +2.0 points for a genre match.
+- Award +1.0 point for a genre match.
 - Award +1.0 point for a mood match.
 - Award energy similarity points based on how close the song's energy is to the user's target energy.
-- Calculate energy similarity as max(0.0, 1.0 - abs(user_prefs["energy"] - song["energy"])) * 2.0.
+- Calculate energy similarity as max(0.0, 1.0 - abs(user_prefs["energy"] - song["energy"])) * 4.0.
 - Return the final numeric score.
 """.strip()
 
@@ -71,9 +71,9 @@ Please answer these questions:
 Please keep the recommendation system simple and interpretable, and base your suggestions on the kinds of songs and attributes that appear in the CSV.
 """.strip()
 
-GENRE_MATCH_POINTS = 2.0
+GENRE_MATCH_POINTS = 1.0
 MOOD_MATCH_POINTS = 1.0
-MAX_ENERGY_SIMILARITY_POINTS = 2.0
+MAX_ENERGY_SIMILARITY_POINTS = 4.0
 
 @dataclass
 class Song:
