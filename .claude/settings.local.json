@@ -18,7 +18,8 @@
       "Bash(python -c \"import os; print\\('API key set:', bool\\(os.environ.get\\('ANTHROPIC_API_KEY'\\)\\)\\)\")",
       "Bash(python src/main.py \"high-intensity interval training\" --classic)",
       "Bash(python src/main.py \"ambient music for sleep\" --classic)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(git check-ignore *)"
     ]
   }
 }

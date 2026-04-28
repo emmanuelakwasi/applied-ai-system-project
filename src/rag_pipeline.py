@@ -396,7 +396,7 @@ class RAGAssistant:
             with self.client.messages.stream(
                 model=self.model,
                 max_tokens=8192,
-                thinking={"type": "adaptive"},
+                thinking={"type": "enabled", "budget_tokens": 5000},
                 system=self._system,
                 messages=[{"role": "user", "content": user_message}],
             ) as stream:
@@ -414,7 +414,7 @@ class RAGAssistant:
             response = self.client.messages.create(
                 model=self.model,
                 max_tokens=8192,
-                thinking={"type": "adaptive"},
+                thinking={"type": "enabled", "budget_tokens": 5000},
                 system=self._system,
                 messages=[{"role": "user", "content": user_message}],
             )

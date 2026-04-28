@@ -237,7 +237,7 @@ class ReasoningAssistant:
                 response = self.client.messages.create(
                     model=self.model,
                     max_tokens=4096,
-                    thinking={"type": "adaptive", "display": "summarized"},
+                    thinking={"type": "enabled", "budget_tokens": 2000},
                     system=_SYSTEM,
                     tools=_TOOLS,
                     messages=messages,

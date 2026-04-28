@@ -18,6 +18,9 @@ Usage (from project root):
 import argparse
 import os
 import sys
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Allow direct imports of sibling modules (recommender, rag_pipeline)
 _SRC_DIR = os.path.dirname(os.path.abspath(__file__))

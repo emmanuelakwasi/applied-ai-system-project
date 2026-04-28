@@ -200,7 +200,10 @@ def recommend_songs(user_prefs: Dict, songs: List[Dict], k: int = 5) -> List[Tup
         energy_points = _energy_similarity_points(user_prefs["energy"], song["energy"])
         explanation_parts.append(f"energy closeness (+{energy_points:.2f})")
 
-        explanation = "Strong fit because of " + ", ".join(explanation_parts) + "."
+        if score >= 2.0:
+            explanation = "Strong fit because of " + ", ".join(explanation_parts) + "."
+        else:
+            explanation = "Partial match — " + ", ".join(explanation_parts) + "."
         scored_songs.append((song, score, explanation))
 
     scored_songs.sort(key=lambda item: item[1], reverse=True)
