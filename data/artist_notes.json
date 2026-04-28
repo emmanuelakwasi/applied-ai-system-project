@@ -1,0 +1,44 @@
+[
+  {
+    "id": "artist_loroom",
+    "title": "LoRoom: Artist Notes",
+    "tags": ["LoRoom", "lo-fi", "chill", "study", "bedroom producer", "Midnight Coding", "Focus Flow"],
+    "content": "LoRoom is a bedroom producer whose catalog is designed explicitly for long-duration study sessions. Production signature: heavily tape-saturated drums tuned to 65-80 BPM, Rhodes electric piano samples with vinyl crackle added in post, and bass lines that stay in the low-mid register to avoid competing with reading-frequency cognition. Albums are structured as continuous experiences with minimal variation in energy or mood — deliberate design for sessions where changing the track interrupts focus. 'Midnight Coding' targets nighttime study: lower tempo (72 BPM), slightly cooler timbral palette. 'Focus Flow' targets daytime productivity: marginally brighter tone, 78 BPM. Neither track contains a melodic climax or dynamic peak — LoRoom's loop-based compositions avoid any moment that pulls attention. Acousticness is high due to sampled vintage recordings rather than synthesized sounds."
+  },
+  {
+    "id": "artist_paper_lanterns",
+    "title": "Paper Lanterns: Artist Notes",
+    "tags": ["Paper Lanterns", "lo-fi", "acoustic", "chill", "rainy", "Library Rain", "intimate"],
+    "content": "Paper Lanterns makes lo-fi music using entirely acoustic instrumentation — acoustic guitar, upright bass, brushed snare kit, and minimal processing beyond light room reverb. Acousticness levels sit at 0.85-0.90, the highest among lo-fi acts in the catalog, achieved by recording in small rooms rather than adding digital saturation. This gives the music an intimate, proximity quality that listeners describe as 'someone playing in the next room.' 'Library Rain' is the defining track: 72 BPM, designed for reading in quiet environments. The critical difference from LoRoom: Paper Lanterns' organic acoustic palette is perceived as less fatiguing over extended listening because acoustic instrument timbres have fewer synthetic harmonics that cause ear fatigue. Recommended for long uninterrupted study or reading sessions where electronic lo-fi feels tiring after 45-60 minutes."
+  },
+  {
+    "id": "artist_orbit_bloom",
+    "title": "Orbit Bloom: Artist Notes",
+    "tags": ["Orbit Bloom", "ambient", "space", "dreamy", "meditation", "sleep", "Spacewalk Thoughts"],
+    "content": "Orbit Bloom creates ambient music designed for extended uninterrupted listening (20-90 minutes). Production approach: layered analog synthesizer pads with very slow harmonic movement (chord changes every 30-60 seconds), no discernible rhythm, and near-zero dynamic variation — amplitude stays within a 3dB range across the entire track. 'Spacewalk Thoughts': 60 BPM (barely perceptible), energy 0.28, acousticness 0.92 (achieved via analog synthesis that mimics acoustic timbres). The near-total absence of percussive transients eliminates the orienting reflex — there are no events to react to. This makes Orbit Bloom tracks highly effective for sleep onset and deep meditation. Key distinction from lo-fi: no rhythmic grounding at all. Listeners who need rhythmic structure to feel 'settled' often prefer lo-fi; listeners who find any beat distracting prefer Orbit Bloom. The high acousticness despite synthesizer-only production is rare and accounts for why the track feels organic rather than clinical."
+  },
+  {
+    "id": "artist_slow_stereo",
+    "title": "Slow Stereo: Artist Notes",
+    "tags": ["Slow Stereo", "jazz", "coffee", "relaxed", "acoustic", "social", "Coffee Shop Stories"],
+    "content": "Slow Stereo makes acoustic jazz for social environments. Production ethos: everything recorded live with no digital correction or overdubbing, resulting in natural human imperfections that signal authenticity in cafe and dinner settings. 'Coffee Shop Stories': 90 BPM, energy 0.45, acousticness 0.77. The track was engineered to sit at 65-70dB in a room — loud enough to fill silence, quiet enough that it does not require raised voices. Harmonic content uses standard jazz vocabulary (ii-V-I progressions, occasional modal section) — familiar enough to feel comfortable to non-musicians, varied enough to remain interesting over a two-hour dinner. Slow Stereo tracks are specifically not intended for solo focused listening: the mild harmonic complexity and social valence create a low-level engagement that feels enriching in company but slightly distracting in solo work. This is the intended design."
+  },
+  {
+    "id": "artist_voltline",
+    "title": "Voltline: Artist Notes",
+    "tags": ["Voltline", "rock", "intense", "workout", "HIIT", "driving", "guitar", "Storm Runner"],
+    "content": "Voltline is a hard rock act whose catalog is engineered for sustained high-intensity physical activity. 'Storm Runner': 128 BPM, energy 0.96 — the highest energy in the catalog. Production: distorted mid-scooped guitar tone for maximum attack, kick drum on every beat (kick-on-beat pattern entrains running cadence at 128 steps/minute), compression that limits dynamic range to keep loudness at peak throughout. Voltline deliberately excludes quiet bridges or verses — every section maintains peak energy. This is the critical difference between Voltline and other high-energy acts: the absence of energy valleys means no disruption to the HIIT work-interval effort cycle. Acousticness is very low (0.04) — fully processed electric sound. Valence is mid (0.55) — assertive and powerful rather than happy, which is appropriate for effort-state music where cheerfulness reads as incongruous."
+  },
+  {
+    "id": "artist_max_pulse",
+    "title": "Max Pulse: Artist Notes",
+    "tags": ["Max Pulse", "pop", "gym", "workout", "high energy", "Gym Hero", "fitness", "dance"],
+    "content": "Max Pulse produces high-energy pop aimed at fitness contexts. Unlike rock-based workout music, Max Pulse tracks retain pop production values — clean mix, four-on-the-floor beat, high valence — while pushing energy to 0.93. This positions the catalog in a distinct niche: workout music for listeners who want high intensity without guitar-driven aggression. 'Gym Hero': 126 BPM, energy 0.93, danceability 0.78, valence 0.72. The high danceability relative to energy is unusual — most high-energy workout tracks sacrifice danceability for raw intensity. Max Pulse retains it intentionally: the danceable beat supports motor synchronization for moderate-rep weightlifting sets (where movement rhythm matters) rather than maximal-effort sprints. The high valence (0.72) means the track feels motivating rather than threatening — appropriate for longer gym sessions where positive emotional state is as important as peak arousal. Recommended over Voltline when the user wants high energy but prefers a positive rather than aggressive emotional tone."
+  },
+  {
+    "id": "artist_neon_echo",
+    "title": "Neon Echo: Artist Notes",
+    "tags": ["Neon Echo", "pop", "synthwave", "Sunrise City", "Night Drive Loop", "versatile", "dual-mode"],
+    "content": "Neon Echo is the most stylistically split act in the catalog, with 'Sunrise City' (pop) and 'Night Drive Loop' (synthwave) representing almost opposite emotional profiles from the same producer. 'Sunrise City': energy 0.82, valence 0.84, danceability 0.79 — designed for daytime high-energy listening (morning routines, light runs). 'Night Drive Loop': energy 0.75, valence 0.38, danceability 0.73 — designed for nighttime focused activity (driving, late-work sessions). The shared element: high danceability across both tracks (0.73-0.79), which reflects Neon Echo's production signature — rhythmically precise, motorically engaging regardless of emotional register. Matching the right track to a request requires context beyond genre: both are high-energy electronic tracks, but their valence profiles (0.84 vs 0.38) make them appropriate for completely different emotional states. A rule-based scorer that only sees energy and genre will conflate them; the valence difference is the decisive variable."
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(claude-api)",
+      "Skill(claude-api:*)",
+      "Bash(pip install *)",
+      "Bash(python -m pytest tests/test_rag_pipeline.py -v)",
+      "Bash(python -c \"import anthropic; print\\('anthropic ok'\\)\")",
+      "Bash(python -c \"import sys; print\\(sys.executable\\)\")",
+      "Bash(python -m pip install anthropic scikit-learn numpy)",
+      "Bash(python -m pip install scikit-learn numpy)",
+      "Bash(python -m pytest tests/ -v)",
+      "Bash(python src/main.py \"chill music for late-night studying\" --classic)",
+      "Bash(python src/main.py --profile \"Deep Intense Rock\" --classic)",
+      "Bash(python src/main.py --classic)",
+      "Bash(python -m pytest tests/ -v --tb=short)",
+      "Bash(python -m pytest tests/ -q)",
+      "Bash(python -c \"import os; print\\('API key set:', bool\\(os.environ.get\\('ANTHROPIC_API_KEY'\\)\\)\\)\")",
+      "Bash(python src/main.py \"high-intensity interval training\" --classic)",
+      "Bash(python src/main.py \"ambient music for sleep\" --classic)",
+      "Bash(python -c ' *)"
+    ]
+  }
+}

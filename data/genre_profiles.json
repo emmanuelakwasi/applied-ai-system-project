@@ -1,0 +1,44 @@
+[
+  {
+    "id": "genre_lofi",
+    "title": "Lo-fi Hip Hop: Genre Profile",
+    "tags": ["lofi", "lo-fi", "chill", "study", "focus", "bedroom", "hip hop"],
+    "content": "Lo-fi hip hop is defined by deliberately degraded audio: vinyl crackle, tape saturation, and pitch imperfections. These imperfections are functional — they reduce the sharp transients that trigger the auditory system's alerting response, making the music easier to sustain as long-duration background sound. Typical BPM: 60-90. Energy: 0.2-0.5. Acousticness: 0.6-0.9 (often achieved by sampling vintage recordings). Valence: neutral to slightly warm (0.4-0.6). The loop-based structure deliberately avoids harmonic resolution or melodic climaxes — there is no moment that demands the listener's attention. This is the key distinction from ambient: lo-fi retains a drum pattern and bass line that provide rhythmic grounding without cognitive demand. Best use: sustained solo focus work (studying, writing, coding), especially sessions over 30 minutes. Adjacent genres: ambient, jazz, bedroom pop. Limitation: the rhythmic pattern, while subtle, can be distracting for listeners who find any beat attention-capturing."
+  },
+  {
+    "id": "genre_ambient",
+    "title": "Ambient Music: Genre Profile",
+    "tags": ["ambient", "sleep", "meditation", "calm", "drone", "texture", "atmosphere"],
+    "content": "Ambient music is defined by the absence of structural demand: no beat, no melodic narrative, no harmonic tension requiring resolution. Brian Eno's formulation — music that can be either actively listened to or ignored — describes the functional goal. Typical BPM: unmeasured or 40-70. Energy: 0.1-0.35. Acousticness: 0.7-0.95 (synthesizers processed to sound organic, or purely acoustic instruments with heavy reverb). Valence: low to neutral (0.2-0.5 — emotionally withdrawn, not sad). Tempo below 60 BPM can entrain to resting heart rate and facilitate parasympathetic nervous system activation, which is why ambient music is clinically used for sleep onset and anxiety reduction. The sustained-pad timbral envelope means no sudden amplitude or spectral changes — the acoustic energy is fully predictable, eliminating the orienting reflex. Best use: sleep, deep meditation, stress reduction, background for tasks requiring zero auditory distraction. Adjacent genres: lo-fi, new age, drone, dark ambient. Key difference from lo-fi: no rhythmic structure whatsoever."
+  },
+  {
+    "id": "genre_rock",
+    "title": "Rock and Hard Rock: Workout Genre Profile",
+    "tags": ["rock", "hard rock", "intense", "workout", "gym", "HIIT", "energy", "driving"],
+    "content": "Rock and its subgenres (hard rock, post-grunge, alternative metal) dominate workout playlists because of sustained high energy with a consistent acoustic energy envelope — unlike pop which builds-drops-builds, rock maintains plateau-level intensity. Typical BPM: 120-160. Energy: 0.7-0.95. Acousticness: very low (0.05-0.2 — heavily processed electric guitar and drums). Valence: mid (0.4-0.6 — powerful and assertive rather than happy). Danceability: moderate (0.4-0.6). The high amplitude and compressed dynamics mean the track never drops below exertion threshold; this is the critical variable for high-intensity interval training, where an energy valley mid-set disrupts the effort cycle. Motor synchronization research shows tempo in the 120-150 BPM range aligns with running cadence (steps per minute), improving efficiency and perceived exertion by 2-4%. Best use: HIIT, weightlifting, running intervals. Adjacent genres: metal, punk, synthwave (for sustained focus intensity without aggression)."
+  },
+  {
+    "id": "genre_synthwave",
+    "title": "Synthwave: Genre Profile",
+    "tags": ["synthwave", "electronic", "night drive", "moody", "dark", "retro", "focused"],
+    "content": "Synthwave is a retro-futurist electronic genre drawing from 1980s film scores and synthesizer music. Its defining production signature: arpeggiated synthesizer basslines, pulsing pad chords, and gated reverb drums. Typical BPM: 90-130. Energy: 0.5-0.85. Acousticness: near zero (0.0-0.1). Valence: low to mid (0.2-0.5 — melancholic and atmospheric rather than cheerful). Danceability: moderate (0.5-0.7). The repeated melodic sequences and moderate tempo create a hypnotic forward motion without emotional escalation — a quality that sustains attention on parallel tasks without dominating it. Unlike high-BPM electronic genres, synthwave does not demand physical response; it occupies mental foreground without requiring it. This makes it effective for focused creative work, writing, and late-night programming where low-valence energy is preferred over the bright affect of pop. Best use: focused night-time work, long commutes, gaming, mood-specific listening. Adjacent genres: darksynth, chillwave, outrun, vaporwave."
+  },
+  {
+    "id": "genre_pop",
+    "title": "Pop Music: Energy and Mood Profile",
+    "tags": ["pop", "happy", "upbeat", "morning", "dance", "fun", "cheerful", "bright"],
+    "content": "Pop is engineered for maximum immediate emotional impact: verse-chorus structure creates expectation and release, high valence creates positive arousal, and danceability activates motor planning circuits. Typical BPM: 100-130. Energy: 0.65-0.9. Acousticness: low to mid (0.05-0.4). Valence: high (0.65-0.9 — the highest of any genre; this is by design). Danceability: high (0.65-0.85). The high valence is functionally important: valence above 0.65 correlates with elevated mood within 3-5 minutes of exposure in psychological studies. This makes pop effective as a priming tool — raising baseline mood before a task — but a poor choice for tasks requiring emotional neutrality or sustained inward focus, because the positive arousal competes with cognitive resources. Best use: morning routines (mood priming), light exercise, commuting, social settings. Limitation: lyrics in pop are syntactically rich and compete directly with reading or writing for language processing resources."
+  },
+  {
+    "id": "genre_jazz",
+    "title": "Jazz: Social Background Profile",
+    "tags": ["jazz", "coffee", "cafe", "relaxed", "dinner", "social", "evening", "acoustic"],
+    "content": "In casual listening contexts, the relevant jazz subgenre is cool jazz or acoustic jazz — mid-tempo, warm-toned, and harmonically interesting without being demanding. Typical BPM: 70-110. Energy: 0.3-0.55. Acousticness: high (0.5-0.9). Valence: mid to warm (0.5-0.75 — sociable and inviting). Danceability: low to mid (0.3-0.5). The harmonic complexity of jazz creates a perception of sophistication without demanding narrative engagement — listeners can follow the music or let it recede without either option feeling wrong. This is distinct from lo-fi (which is designed for solitary focus) and ambient (which is designed for near-silence). Jazz occupies the social background role: present enough to signal atmosphere, varied enough to remain interesting over a two-hour dinner, but non-intrusive enough not to interrupt conversation. The critical acoustic variable: high natural acousticness signals live, human-performed music, which is read as tasteful in social environments. Best use: cafes, dinner parties, evening wind-down."
+  },
+  {
+    "id": "genre_indie_pop",
+    "title": "Indie Pop: Genre Profile",
+    "tags": ["indie", "indie pop", "breezy", "summer", "outdoor", "rooftop", "nostalgic"],
+    "content": "Indie pop sits between pop (catchy, high valence) and lo-fi (textured, informal) — it has pop song structure but avoids the maximalist production of mainstream pop, giving it personality without sonic aggression. Typical BPM: 100-130. Energy: 0.6-0.85. Acousticness: variable (0.1-0.6 — often includes real instruments over or instead of programmed sounds). Valence: high and nostalgic (0.65-0.85 — warm rather than euphoric). Danceability: moderate to high (0.5-0.75). The variable acousticness is genre-defining: indie pop can sound like a bedroom recording or a polished studio track; what distinguishes it is a sense of intimacy and emotional honesty that mainstream pop often sacrifices for impact. Best use: morning activity, outdoor settings, social gatherings where background music should feel curated rather than commercial. Adjacent genres: dream pop, chamber pop, jangle pop, bedroom pop. Key distinction from pop: indie pop rewards closer listening without demanding it."
+  }
+]
