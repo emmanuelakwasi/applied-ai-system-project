@@ -16,6 +16,7 @@ from typing import Dict, List, Tuple
 
 from sklearn.decomposition import NMF
 from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.neighbors import NearestNeighbors
 
 # ── Synthetic listener archetypes ────────────────────────────────────────────
 # (genre_pref, mood_pref, energy_pref, likes_acoustic)
@@ -138,6 +139,56 @@ class CollaborativeFilter:
 
         ranked = sorted(
             zip(self.songs, r_pred.tolist()),
+            key=lambda x: x[1],
+            reverse=True,
+        )
+        return ranked[:k]
+
+
+class UserKNNCollaborativeFilter:
+    """
+    User-based KNN collaborative filtering using cosine similarity.
+    Builds a synthetic user-item rating matrix (same as NMF), fits NearestNeighbors,
+    and recommends songs for a new user profile by finding the k-nearest archetype users.
+    """
+    def __init__(self, songs: List[Dict], n_neighbors: int = 3):
+        self.songs = songs
+        self.n_neighbors = n_neighbors
+        self._user_matrix = None  # shape: (n_users, n_songs)
+        self._model = None
+
+    def fit(self) -> "UserKNNCollaborativeFilter":
+        R = np.array(
+            [[_rate_song(u, s) for s in self.songs] for u in _ARCHETYPES]
+        )  # shape: (n_users, n_songs)
+        self._user_matrix = R
+        self._model = NearestNeighbors(n_neighbors=self.n_neighbors, metric="cosine")
+        self._model.fit(R)
+        return self
+
+    def recommend(self, user_prefs: Dict, k: int = 5) -> List[Tuple[Dict, float]]:
+        """
+        Recommend top-k songs for a new user profile by averaging ratings from nearest archetype users.
+        """
+        if self._model is None or self._user_matrix is None:
+            raise RuntimeError("Call fit() before recommend()")
+
+        genre  = user_prefs.get("genre", "pop")
+        mood   = user_prefs.get("mood", "happy")
+        energy = float(user_prefs.get("energy", 0.7))
+        likes_acoustic = genre in {"lofi", "ambient", "jazz", "indie pop"}
+        proxy = (genre, mood, energy, likes_acoustic)
+        r_new = np.array([[_rate_song(proxy, s) for s in self.songs]])  # (1, n_songs)
+
+        # Find nearest archetype users
+        distances, indices = self._model.kneighbors(r_new, return_distance=True)
+        neighbor_idxs = indices[0]
+        # Average their ratings for each song
+        neighbor_ratings = self._user_matrix[neighbor_idxs]  # (n_neighbors, n_songs)
+        avg_ratings = neighbor_ratings.mean(axis=0)  # (n_songs,)
+
+        ranked = sorted(
+            zip(self.songs, avg_ratings.tolist()),
             key=lambda x: x[1],
             reverse=True,
         )

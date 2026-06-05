@@ -3,7 +3,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
 import pytest
 from recommender import load_songs
-from collaborative_filter import CollaborativeFilter, _rate_song, _ARCHETYPES
+from collaborative_filter import CollaborativeFilter, UserKNNCollaborativeFilter, _rate_song, _ARCHETYPES
 
 _CSV = os.path.join(os.path.dirname(__file__), "..", "data", "songs.csv")
 
@@ -92,6 +92,48 @@ def test_recommend_unfitted_raises(songs):
     with pytest.raises(RuntimeError, match="fit"):
         cf.recommend({"genre": "pop", "mood": "happy", "energy": 0.8})
 
+
+# ── UserKNNCollaborativeFilter ───────────────────────────────────────────────
+
+def test_userknn_fit_returns_self(songs):
+    userknn = UserKNNCollaborativeFilter(songs)
+    result = userknn.fit()
+    assert result is userknn
+
+
+def test_userknn_recommend_returns_k_results(songs):
+    userknn = UserKNNCollaborativeFilter(songs).fit()
+    recs = userknn.recommend({"genre": "lofi", "mood": "chill", "energy": 0.4}, k=5)
+    assert len(recs) == 5
+
+
+def test_userknn_recommend_sorted_descending(songs):
+    userknn = UserKNNCollaborativeFilter(songs).fit()
+    recs = userknn.recommend({"genre": "pop", "mood": "happy", "energy": 0.8}, k=5)
+    scores = [score for _, score in recs]
+    assert scores == sorted(scores, reverse=True)
+
+
+def test_userknn_recommend_returns_song_dicts(songs):
+    userknn = UserKNNCollaborativeFilter(songs).fit()
+    recs = userknn.recommend({"genre": "rock", "mood": "intense", "energy": 0.9}, k=3)
+    for song, score in recs:
+        assert "title" in song
+        assert "artist" in song
+        assert isinstance(score, float)
+
+
+def test_userknn_lofi_profile_prefers_lofi(songs):
+    userknn = UserKNNCollaborativeFilter(songs).fit()
+    recs = userknn.recommend({"genre": "lofi", "mood": "chill", "energy": 0.38}, k=3)
+    top_genres = [song["genre"] for song, _ in recs]
+    assert "lofi" in top_genres, "lofi profile should surface at least one lofi song in top 3"
+
+
+def test_userknn_unfitted_raises(songs):
+    userknn = UserKNNCollaborativeFilter(songs)
+    with pytest.raises(RuntimeError, match="fit"):
+        userknn.recommend({"genre": "pop", "mood": "happy", "energy": 0.8})
 
 # ── find_similar_songs ────────────────────────────────────────────────────────
 

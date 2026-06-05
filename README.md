@@ -166,6 +166,9 @@ python src/main.py "workout music" --classic
 # Collaborative filtering via NMF (no API key needed)
 python src/main.py "chill music for studying" --classic --collab
 
+# User-based KNN collaborative filtering (no API key needed)
+python src/main.py "chill music for studying" --classic --userknn
+
 # Multi-step reasoning agent - Claude calls tools; every step is visible
 python src/main.py "chill music for late-night studying" --reason
 

@@ -127,6 +127,10 @@ def main() -> None:
         "--collab", action="store_true",
         help="Show collaborative filtering recommendations (NMF matrix factorization)"
     )
+    parser.add_argument(
+        "--userknn", action="store_true",
+        help="Show user-based KNN collaborative filtering recommendations"
+    )
     args = parser.parse_args()
 
     csv_path = os.path.join(_ROOT_DIR, "data", "songs.csv")
@@ -185,6 +189,22 @@ def main() -> None:
             top_id = cf_recs[0][0]["id"]
             similar = cf.find_similar_songs(top_id, k=3)
             _print_cf_results(label, cf_recs, similar)
+
+    # --- Step UserKNN CF: user-based KNN collaborative filtering ---
+    if args.userknn:
+        try:
+            from collaborative_filter import UserKNNCollaborativeFilter
+        except ImportError as e:
+            print(f"  User-based KNN collaborative filtering dependencies not installed: {e}")
+        else:
+            userknn_cf = UserKNNCollaborativeFilter(songs).fit()
+            userknn_recs = userknn_cf.recommend(user_prefs, k=5)
+            print(f"\n{_DIV}")
+            print(f"  Step UserKNN | User-based KNN Collaborative Filtering  [{label}]")
+            print(_DIV)
+            for i, (song, score) in enumerate(userknn_recs, 1):
+                print(f"  {i}. {song['title']} by {song['artist']}  (UserKNN score {score:.3f})")
+            print()
 
     if args.classic:
         return
