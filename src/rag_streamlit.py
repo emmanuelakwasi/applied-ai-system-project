@@ -1,4 +1,5 @@
 import os
+import json
 import streamlit as st
 from rag_pipeline import RAGAssistant
 
@@ -29,8 +30,40 @@ def get_assistant():
 
 assistant = get_assistant()
 
+# --- Load genres and moods from genre_profiles.json ---
+genre_json_path = os.path.join(_ROOT_DIR, "data", "genre_profiles.json")
+with open(genre_json_path, "r") as f:
+    genre_profiles = json.load(f)
+
+genre_options = [g["title"].split(":")[0] for g in genre_profiles]
+genre_tags = {g["title"].split(":")[0]: g["tags"] for g in genre_profiles}
+
+# Flatten all tags for mood options (deduped, lowercase)
+mood_set = set()
+for g in genre_profiles:
+    for tag in g["tags"]:
+        mood_set.add(tag.lower())
+mood_options = sorted(list(mood_set))
+
 with st.form("query_form"):
-    query = st.text_input("Ask anything about the music catalog:", "recommend chill music for late-night studying")
+    col1, col2 = st.columns(2)
+    with col1:
+        genre = st.selectbox("Select a genre (optional):", ["(none)"] + genre_options)
+    with col2:
+        mood = st.selectbox("Select a mood/keyword (optional):", ["(none)"] + mood_options)
+
+    # Suggest a query based on dropdowns
+    default_query = "recommend chill music for late-night studying"
+    if genre != "(none)" and mood != "(none)":
+        suggested_query = f"recommend {mood} {genre.lower()} music"
+    elif genre != "(none)":
+        suggested_query = f"recommend {genre.lower()} music"
+    elif mood != "(none)":
+        suggested_query = f"recommend {mood} music"
+    else:
+        suggested_query = default_query
+
+    query = st.text_input("Ask anything about the music catalog:", suggested_query)
     submitted = st.form_submit_button("Get Recommendation")
 
 if submitted and query.strip():
