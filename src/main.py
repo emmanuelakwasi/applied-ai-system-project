@@ -76,6 +76,19 @@ def _infer_profile(query: str) -> dict:
 _DIV = "-" * 58
 
 
+def _print_cf_results(label: str, recs: list, similar: list) -> None:
+    print(f"\n{_DIV}")
+    print(f"  Step CF | Collaborative Filtering  [{label}]")
+    print(_DIV)
+    for i, (song, score) in enumerate(recs, 1):
+        print(f"  {i}. {song['title']} by {song['artist']}  (CF score {score:.3f})")
+    top_title = recs[0][0]["title"]
+    print(f"\n  Songs similar to '{top_title}' (latent item space):")
+    for song, sim in similar:
+        print(f"    - {song['title']} by {song['artist']}  (cosine {sim:.3f})")
+    print()
+
+
 def _print_scores(label: str, recommendations: list) -> None:
     print(f"\n{_DIV}")
     print(f"  Step 1 | Rule-Based Scores  [{label}]")
@@ -109,6 +122,10 @@ def main() -> None:
     parser.add_argument(
         "--reason", action="store_true",
         help="Use multi-step reasoning agent — Claude calls tools and each step is printed"
+    )
+    parser.add_argument(
+        "--collab", action="store_true",
+        help="Show collaborative filtering recommendations (NMF matrix factorization)"
     )
     args = parser.parse_args()
 
@@ -155,6 +172,19 @@ def main() -> None:
 
     # --- Step 1: rule-based scoring ---
     _print_scores(label, recommendations)
+
+    # --- Step CF: collaborative filtering (opt-in via --collab) ---
+    if args.collab:
+        try:
+            from collaborative_filter import CollaborativeFilter
+        except ImportError as e:
+            print(f"  Collaborative filtering dependencies not installed: {e}")
+        else:
+            cf = CollaborativeFilter(songs).fit()
+            cf_recs = cf.recommend(user_prefs, k=5)
+            top_id = cf_recs[0][0]["id"]
+            similar = cf.find_similar_songs(top_id, k=3)
+            _print_cf_results(label, cf_recs, similar)
 
     if args.classic:
         return
